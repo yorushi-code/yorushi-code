@@ -52,23 +52,25 @@
   }}>
     <div style={{
       display: 'flex',
-      width: '80px',
-      height: '80px',
+      width: '84px',
+      height: '84px',
       borderRadius: '50%',
       background: 'linear-gradient(135deg, #7aa2f7 0%, #bb9af7 55%, #ff9e64 100%)',
       alignItems: 'center',
       justifyContent: 'center',
     }}>
-      <div style={{
-        display: 'flex',
-        width: '73px',
-        height: '73px',
-        borderRadius: '50%',
-        overflow: 'hidden',
-        border: '3px solid #1a1b26',
-      }}>
-        <img src="https://github.com/yorushi-code.png" style={{ width: '73px', height: '73px' }} />
-      </div>
+      <img
+        src="https://github.com/yorushi-code.png"
+        width="72"
+        height="72"
+        style={{
+          width: '72px',
+          height: '72px',
+          borderRadius: '50%',
+          border: '3px solid #1a1b26',
+          objectFit: 'cover',
+        }}
+      />
     </div>
 
     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -268,10 +270,6 @@
 ```
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=yorushi-code&show_icons=true&theme=tokyonight&hide_border=true&bg_color=1a1b26&title_color=7aa2f7&icon_color=ff9e64&text_color=c0caf5&border_radius=18&include_all_commits=true&count_private=true" height="170" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yorushi-code&layout=compact&theme=tokyonight&hide_border=true&bg_color=1a1b26&title_color=7aa2f7&text_color=c0caf5&border_radius=18&langs_count=8" height="170" />
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=yorushi-code&theme=tokyonight&hide_border=true&background=1a1b26&ring=ff9e64&fire=ff9e64&currStreakLabel=7aa2f7&border_radius=18" height="170" />
+  <img height="230" src="https://ghstats.dev/api/card?username=yorushi-code&theme=tokyonight&hide=trend%2Cavg%2Cactive_day%2Ccontributions%2Crepos%2Cfollowers&custom_title=Stats&border_radius=18" />
+  <img height="230" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yorushi-code&theme=tokyonight" />
 </p>

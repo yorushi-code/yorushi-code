@@ -279,8 +279,19 @@
   background: '#1a1b26',
   borderRadius: '18px',
   border: '1px solid #292e42',
+  position: 'relative',
   overflow: 'hidden',
 }}>
+  <div style={{
+    display: 'flex',
+    position: 'absolute',
+    bottom: '0',
+    left: '0',
+    right: '0',
+    height: '3px',
+    background: 'linear-gradient(90deg, #ff9e64 0%, #bb9af7 35%, #7aa2f7 65%, #414868 100%)',
+  }} />
+
   <div style={{
     display: 'flex',
     flex: '1',

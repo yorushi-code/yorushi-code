@@ -270,129 +270,131 @@
 </div>
 ```
 
-```aura width=403 height=235 inline align=center
+```aura width=820 height=245
 <div style={{
   display: 'flex',
-  flexDirection: 'column',
+  alignItems: 'stretch',
   width: '100%',
   height: '100%',
   background: '#1a1b26',
   borderRadius: '18px',
   border: '1px solid #292e42',
-  padding: '20px 22px',
-  gap: '14px',
+  overflow: 'hidden',
 }}>
-  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-    <div style={{
-      display: 'flex',
-      width: '4px',
-      height: '16px',
-      borderRadius: '2px',
-      background: 'linear-gradient(180deg, #7aa2f7, #ff9e64)',
-    }} />
-    <span style={{
-      fontSize: '13px',
-      color: '#c0caf5',
-      fontWeight: '700',
-      letterSpacing: '1.2px',
-      textTransform: 'uppercase',
-    }}>
-      Stats
-    </span>
-  </div>
+  <div style={{
+    display: 'flex',
+    flex: '1',
+    flexDirection: 'column',
+    padding: '20px 24px',
+    gap: '14px',
+    borderRight: '1px solid #292e42',
+  }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{
+        display: 'flex',
+        width: '4px',
+        height: '16px',
+        borderRadius: '2px',
+        background: 'linear-gradient(180deg, #7aa2f7, #ff9e64)',
+      }} />
+      <span style={{
+        fontSize: '13px',
+        color: '#c0caf5',
+        fontWeight: '700',
+        letterSpacing: '1.2px',
+        textTransform: 'uppercase',
+      }}>
+        Stats
+      </span>
+    </div>
 
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-    {[
-      { label: 'Stars earned',  value: github.stats.totalStars,   color: '#e0af68' },
-      { label: 'Member since',  value: github.user.createdAt.slice(0, 4), color: '#9ece6a' },
-      { label: 'Repositories',  value: github.stats.totalRepos,   color: '#7aa2f7' },
-      { label: 'Forks',         value: github.stats.totalForks,   color: '#bb9af7' },
-      { label: 'Followers',     value: github.user.followers,     color: '#ff9e64' },
-      { label: 'Following',     value: github.user.following,     color: '#7dcfff' },
-    ].map((row, i) => (
-      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <div style={{
-          display: 'flex',
-          width: '7px',
-          height: '7px',
-          borderRadius: '50%',
-          background: row.color,
-        }} />
-        <span style={{ fontSize: '13px', color: '#787c99', flex: '1' }}>
-          {row.label}
-        </span>
-        <span style={{ fontSize: '14px', color: row.color, fontWeight: '700' }}>
-          {row.value}
-        </span>
-      </div>
-    ))}
-  </div>
-</div>
-```
-
-```aura width=403 height=235 inline align=center
-<div style={{
-  display: 'flex',
-  flexDirection: 'column',
-  width: '100%',
-  height: '100%',
-  background: '#1a1b26',
-  borderRadius: '18px',
-  border: '1px solid #292e42',
-  padding: '20px 22px',
-  gap: '14px',
-}}>
-  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-    <div style={{
-      display: 'flex',
-      width: '4px',
-      height: '16px',
-      borderRadius: '2px',
-      background: 'linear-gradient(180deg, #7aa2f7, #ff9e64)',
-    }} />
-    <span style={{
-      fontSize: '13px',
-      color: '#c0caf5',
-      fontWeight: '700',
-      letterSpacing: '1.2px',
-      textTransform: 'uppercase',
-    }}>
-      Top languages
-    </span>
-  </div>
-
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '11px' }}>
-    {github.languages.slice(0, 5).map((lang, i) => {
-      const palette = ['#7aa2f7', '#bb9af7', '#ff9e64', '#9ece6a', '#e0af68'];
-      const tone = palette[i];
-      return (
-        <div key={lang.name} style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ fontSize: '12px', color: '#c0caf5', fontWeight: '600', flex: '1' }}>
-              {lang.name}
-            </span>
-            <span style={{ fontSize: '12px', color: tone, fontWeight: '700' }}>
-              {lang.percentage}%
-            </span>
-          </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      {[
+        { label: 'Stars earned', value: github.stats.totalStars, color: '#e0af68' },
+        { label: 'Member since', value: github.user.createdAt.slice(0, 4), color: '#9ece6a' },
+        { label: 'Repositories', value: github.stats.totalRepos, color: '#7aa2f7' },
+        { label: 'Forks', value: github.stats.totalForks, color: '#bb9af7' },
+        { label: 'Followers', value: github.user.followers, color: '#ff9e64' },
+        { label: 'Following', value: github.user.following, color: '#7dcfff' },
+      ].map((row, i) => (
+        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
             display: 'flex',
-            width: '100%',
-            height: '6px',
-            borderRadius: '3px',
-            background: '#16161e',
-          }}>
+            width: '7px',
+            height: '7px',
+            borderRadius: '50%',
+            background: row.color,
+          }} />
+          <span style={{ fontSize: '13px', color: '#787c99', flex: '1' }}>
+            {row.label}
+          </span>
+          <span style={{ fontSize: '14px', color: row.color, fontWeight: '700' }}>
+            {row.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div style={{
+    display: 'flex',
+    flex: '1',
+    flexDirection: 'column',
+    padding: '20px 24px',
+    gap: '14px',
+  }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{
+        display: 'flex',
+        width: '4px',
+        height: '16px',
+        borderRadius: '2px',
+        background: 'linear-gradient(180deg, #bb9af7, #9ece6a)',
+      }} />
+      <span style={{
+        fontSize: '13px',
+        color: '#c0caf5',
+        fontWeight: '700',
+        letterSpacing: '1.2px',
+        textTransform: 'uppercase',
+      }}>
+        Top languages
+      </span>
+    </div>
+
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '11px' }}>
+      {github.languages.slice(0, 5).map((lang, i) => {
+        const palette = ['#7aa2f7', '#bb9af7', '#ff9e64', '#9ece6a', '#e0af68'];
+        const tone = palette[i];
+        return (
+          <div key={lang.name} style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ fontSize: '12px', color: '#c0caf5', fontWeight: '600', flex: '1' }}>
+                {lang.name}
+              </span>
+              <span style={{ fontSize: '12px', color: tone, fontWeight: '700' }}>
+                {lang.percentage}%
+              </span>
+            </div>
             <div style={{
               display: 'flex',
-              width: `${lang.percentage}%`,
+              width: '100%',
               height: '6px',
               borderRadius: '3px',
-              background: tone,
-            }} />
+              background: '#16161e',
+            }}>
+              <div style={{
+                display: 'flex',
+                width: `${lang.percentage}%`,
+                height: '6px',
+                borderRadius: '3px',
+                background: tone,
+              }} />
+            </div>
           </div>
-        </div>
-      );
-    })}
+        );
+      })}
+    </div>
   </div>
 </div>
 ```

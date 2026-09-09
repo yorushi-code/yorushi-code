@@ -133,6 +133,7 @@
 }}>
   {[
     { label: 'Email',    value: 'yorushi.code@hotmail.com', accent: '#9ece6a' },
+    { label: 'Telegram', value: '@the_yorushi',             accent: '#7dcfff' },
     { label: 'GitHub',   value: '@yorushi-code',            accent: '#7aa2f7' },
     { label: 'Location', value: 'somewhere after midnight', accent: '#ff9e64' },
   ].map((item, i) => (
@@ -143,7 +144,7 @@
       alignItems: 'center',
       justifyContent: 'center',
       gap: '8px',
-      borderRight: i < 2 ? '1px solid #292e42' : 'none',
+      borderRight: i < 3 ? '1px solid #292e42' : 'none',
       position: 'relative',
       overflow: 'hidden',
     }}>
@@ -269,7 +270,129 @@
 </div>
 ```
 
-<p align="center">
-  <img height="230" src="https://ghstats.dev/api/card?username=yorushi-code&theme=tokyonight&hide=trend%2Cavg%2Cactive_day%2Ccontributions%2Crepos%2Cfollowers&custom_title=Stats&border_radius=18" />
-  <img height="230" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yorushi-code&theme=tokyonight" />
-</p>
+```aura width=403 height=235 inline align=center
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  height: '100%',
+  background: '#1a1b26',
+  borderRadius: '18px',
+  border: '1px solid #292e42',
+  padding: '20px 22px',
+  gap: '14px',
+}}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div style={{
+      display: 'flex',
+      width: '4px',
+      height: '16px',
+      borderRadius: '2px',
+      background: 'linear-gradient(180deg, #7aa2f7, #ff9e64)',
+    }} />
+    <span style={{
+      fontSize: '13px',
+      color: '#c0caf5',
+      fontWeight: '700',
+      letterSpacing: '1.2px',
+      textTransform: 'uppercase',
+    }}>
+      Stats
+    </span>
+  </div>
+
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+    {[
+      { label: 'Stars earned',  value: github.stats.totalStars,   color: '#e0af68' },
+      { label: 'Member since',  value: github.user.createdAt.slice(0, 4), color: '#9ece6a' },
+      { label: 'Repositories',  value: github.stats.totalRepos,   color: '#7aa2f7' },
+      { label: 'Forks',         value: github.stats.totalForks,   color: '#bb9af7' },
+      { label: 'Followers',     value: github.user.followers,     color: '#ff9e64' },
+      { label: 'Following',     value: github.user.following,     color: '#7dcfff' },
+    ].map((row, i) => (
+      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{
+          display: 'flex',
+          width: '7px',
+          height: '7px',
+          borderRadius: '50%',
+          background: row.color,
+        }} />
+        <span style={{ fontSize: '13px', color: '#787c99', flex: '1' }}>
+          {row.label}
+        </span>
+        <span style={{ fontSize: '14px', color: row.color, fontWeight: '700' }}>
+          {row.value}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
+```
+
+```aura width=403 height=235 inline align=center
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  height: '100%',
+  background: '#1a1b26',
+  borderRadius: '18px',
+  border: '1px solid #292e42',
+  padding: '20px 22px',
+  gap: '14px',
+}}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div style={{
+      display: 'flex',
+      width: '4px',
+      height: '16px',
+      borderRadius: '2px',
+      background: 'linear-gradient(180deg, #7aa2f7, #ff9e64)',
+    }} />
+    <span style={{
+      fontSize: '13px',
+      color: '#c0caf5',
+      fontWeight: '700',
+      letterSpacing: '1.2px',
+      textTransform: 'uppercase',
+    }}>
+      Top languages
+    </span>
+  </div>
+
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '11px' }}>
+    {github.languages.slice(0, 5).map((lang, i) => {
+      const palette = ['#7aa2f7', '#bb9af7', '#ff9e64', '#9ece6a', '#e0af68'];
+      const tone = palette[i];
+      return (
+        <div key={lang.name} style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ fontSize: '12px', color: '#c0caf5', fontWeight: '600', flex: '1' }}>
+              {lang.name}
+            </span>
+            <span style={{ fontSize: '12px', color: tone, fontWeight: '700' }}>
+              {lang.percentage}%
+            </span>
+          </div>
+          <div style={{
+            display: 'flex',
+            width: '100%',
+            height: '6px',
+            borderRadius: '3px',
+            background: '#16161e',
+          }}>
+            <div style={{
+              display: 'flex',
+              width: `${lang.percentage}%`,
+              height: '6px',
+              borderRadius: '3px',
+              background: tone,
+            }} />
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+```
